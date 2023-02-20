@@ -1,0 +1,410 @@
+.dash-header{
+    background-color:$primary-color;
+    padding: 18px 40px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 0 7px #d2d2d2;
+    z-index: 10;
+    &.disabled{position: static}
+
+    &__container {
+        @include flexDetailPosition(row, center, stretch);
+    }
+    &__bars{display: none; }
+    &__employee{display: none; }
+
+    &__logo {
+        width:240px ;
+        .lendsqr-logo{
+            max-width: 155px;
+        }
+    }
+
+    &__search{
+        position: relative;
+
+        form {
+            width: 400px;
+            @include flexDetailPosition(row, center, stretch);
+
+            label {
+                position: absolute;
+                top: -200px;
+            }
+
+            input[type="text"] {
+                font-family: $nunito-family;
+                height: 40px;
+                padding: 10px;
+                font-size: 1rem;
+                font-weight: weight(bold);
+                color: $dev-color2 ;
+                flex: 1;
+                background-color: transparent;
+                border-radius: 0.4rem 0 0 0.4rem;
+                border: none;
+                border: 2px solid #e4e8f4;
+
+                &:hover,
+                &:focus {
+                    outline: 2px solid $dev-color2;
+                }
+                &::placeholder {
+                    color: #e4e8f4;
+                }
+            }
+
+            button {
+                width: 56px;
+                height: 40px;
+                position: relative;
+                border: 2px solid $dev-color2;
+                background-color: $dev-color2;
+                border-radius: 0 0.4rem 0.4rem 0;
+                @include transition-ease;
+
+                &:hover,
+                &:focus {
+                    background-color: #61dddd;
+                    outline:2px solid $dev-color2;
+                }
+
+                svg {
+                    color: $primary-color;
+                    font-size: 1rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+
+    &__info {
+        margin-left: auto;
+        font-family: $nunito-family;
+        color: $dev-color;
+        @include flexDetailPosition(row, center, flex-start);
+
+        &-close{display: none}
+        &-bar{
+            @include flexDetailPosition(row, center, stretch);
+
+            .docs {
+                width: max-content;
+                font-size: 1rem;
+                font-weight: weight(bold);
+                text-decoration: underline;
+                cursor: pointer;
+                @include transition-ease;
+        
+                &:hover,
+                &:focus {
+                    color: $dev-color2;  
+                }
+            }
+
+            .alarm {
+                cursor: pointer;
+                width: max-content;
+                line-height: 6px;
+                margin-left: 40px;
+
+                svg {
+                    font-size: 1.5rem;
+                }
+
+                @include transition-ease;
+
+                &:hover,
+                &:focus {
+                    color: $dev-color2;
+                }
+            }
+
+            .avatar{
+                margin-left: 40px;
+                width: 45px;
+                height: 44px;
+                background-color: $secondary-color;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        &-user{
+            padding-top: 18px;
+            margin-left: 20px;
+            position: relative;
+            width: max-content;
+            @include flexPosition(column);
+
+            .username{
+                padding: 0 5px;
+                cursor: pointer;
+                text-transform: capitalize;
+                font-weight: weight(bold);
+                letter-spacing: 1px;
+                @include flexDetailPosition(row, center, stretch);
+            
+                svg {
+                    margin-left: .5px;
+                    font-size: .9rem;
+                    @include transition-ease;
+                    transform: rotate(-90deg);
+                }
+                &:hover,
+                &:focus {
+                    color: $dev-color2;
+                }
+                &.open svg{
+                    transform: rotate(0);
+                }
+            }
+            .logout{
+                cursor: pointer;
+                margin-right: 10px;
+                font-weight: weight(bold);
+                text-align: center;
+                font-size: .8rem;
+                line-height: 19px;
+                height: 20px;
+                border-radius: 5px;
+                color: $dev-color2;
+
+                i{
+                    background-color: $secondary-color;
+                    overflow: hidden;
+                    display: block;
+                    letter-spacing: 1px;
+                    padding: 0 5px;
+                    height: 0;
+                    @include transition-ease;
+                }
+                &.open i{
+                    height: 19px;
+                }
+            }
+        }
+    }
+
+}
+
+// *** Responsiveness ***
+@include media-lg-desktop{
+    .dash-header {
+        padding: 30px;
+        &__container {
+            flex-wrap: wrap;
+        }
+        &__bars {
+            border: none;
+            background-color: transparent;
+            display: block;
+            color: $dev-color;
+            font-size: 1.8rem;
+            padding-top: 4px;
+            margin-right: 7px;
+            transform: rotate(0);
+            cursor: pointer;
+            @include transition-ease;
+            &.rotate{
+                transform: rotate(180deg);
+                padding-top:6px;
+            }
+        }
+
+        &__logo {
+            width: max-content;
+            .lendsqr-logo {
+                max-width: 130px;
+                &__icon {
+                    padding-top: 3px;
+                    flex-basis: 17%;
+                }
+                &__name {
+                    flex-basis: 83%;
+                }
+            }
+        }
+
+        &__search {
+            margin: 0 auto;
+        }
+
+        &__employee {
+            border: none;
+            margin-left: auto;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: $secondary-color;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__info {
+            position: fixed;
+            top: 101px;
+            right: -600px;
+            &.open{right: 0}
+            box-shadow: 0 0 7px #d2d2d2;
+            height: calc(100% - 100px);
+            width: 220px;
+            padding: 40px 0 20px;
+            background-color: $primary-color;
+            @include flexDetailPosition(column, stretch, flex-start);
+            @include transition-ease;
+
+            &-close {
+                position: absolute;
+                display: flex;
+                top: 7px;
+                right: 7px;
+                cursor: pointer;
+                svg{font-size: 1.3rem; margin: auto}
+            }
+            &-bar {
+                @include flexDetailPosition(column, stretch, stretch);
+                height: 85%;
+                
+                .docs {
+                    width: 100%;
+                    height: 40px;
+                    @include flexDetailPosition(row, center, center);
+                    font-size: .9rem;
+                    background-color: $dev-color3 ;
+                    color: $dev-color2;
+
+                    &:hover,
+                    &:focus { 
+                        background-color: $dev-color2 ;
+                        color: $primary-color;
+                    }
+                    &::after {
+                        content: 'in detail';
+                        margin-left: 5px;
+                        font-weight: weight(bold);
+                    }
+                }
+                .alarm {
+                    margin-left: 0;
+                    margin-top: 10px;
+                    width: 100%;
+                    height: 40px;
+                    @include flexDetailPosition(row, center, center);
+
+                    &:hover,
+                    &:focus { color: $dev-color2; }
+                    &::after{
+                        content: 'Notifications';
+                        margin-left: 6px;
+                        font-weight: weight(bold);
+                        font-size: .9rem;
+                    }
+                }
+                .avatar {
+                    margin:0 auto;
+                    margin-top: auto;
+                    width: 40px;
+                    height: 40px;
+                    background-color: $dev-color;
+                    border-radius: 50%;
+                }
+            }
+            &-user {
+                padding-top: 12px;
+                margin: 0 auto;
+                position: relative;
+                width: max-content;
+            }
+        }
+        
+    }
+}
+
+@include media-lg-mobile {
+    .dash-header {
+        padding: 13px 30px 15px;
+        &__search {
+            order: 3;
+            flex-basis: 90%;
+            margin: 0 auto;
+            margin-top: 8px;
+    
+            form {
+                width: 100%;
+                input[type="text"] {
+                    height: 37px;
+                    padding: 8px 6px;
+                    font-size: .9rem;
+                }
+                button {
+                    width: 53px;
+                    height: 37px;
+                }
+            }
+        }
+        &__info {
+            top: 114px;
+        }
+    }
+}
+
+@include media-lg-forced {
+    .dash-header {
+        padding: 13px 15px 15px;
+    }
+}
+
+@include media-mobile{
+    .dash-header {
+        padding: 13px 7px 15px;
+
+        &__bars {
+            font-size: 1.5rem;
+        }
+    
+        &__logo {
+            width: max-content;
+            .lendsqr-logo {
+                max-width: 100px;
+            }
+        }
+
+        &__search {
+            flex-basis: 100%;
+            form {
+        
+                input[type="text"] {
+                    height: 35px;
+                }
+        
+                button {
+                    height: 35px;
+                }
+            }
+        }
+        &__employee {
+            width: 35px;
+            height: 35px;
+        }
+        &__info {
+            top: 107px;
+        }
+    }
+}

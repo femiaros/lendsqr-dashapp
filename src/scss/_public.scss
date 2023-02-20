@@ -1,0 +1,104 @@
+.public{
+    font-family: $nunito-family;
+    min-height: 650px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-auto-rows: 100%;
+    
+    &__left{
+        background-color: $secondary-color;
+        padding: 4em 1em 0 3em;
+
+        header {
+            font-family: $inter-family;
+            padding-bottom:2rem ;
+            h1 {
+                @include flexDetailPosition(row, center, stretch);
+    
+                .styled {
+                    margin-left: 7px;
+                    font-size: 1.26em;
+                    color: $dev-color2;
+                }
+            }
+        }
+
+        &__main {
+            border-top: 4px solid $dev-color;
+            border-bottom: 4px solid $dev-color;
+            padding: 3em 0 20px;
+            @include flexDetailPosition(column, stretch, stretch);
+
+            &-locaion{
+                color:$dev-color ;
+                font-size:1.1rem ;
+                letter-spacing: .5px;
+                line-height:23px ;
+                font-weight: weight(bold);
+                margin-bottom: 2em;
+            }
+            &-addr{
+                color:$dev-color ;
+                font-size:1rem ;
+                letter-spacing: .4px;
+                line-height: 23px;
+                font-weight: weight(medium);
+                margin-bottom: 2.7em;
+
+                a,a:visited{
+                    color: $primary-color;
+                    text-decoration: none;
+                }
+                
+            }
+
+            &-creator{
+                color: $dev-color;
+                font-weight: weight(bold);
+            }
+        }
+        // button css
+        .clickable {
+            width: 180px;
+            height: 40px;
+            background-color: $dev-color2;
+            padding: 0 .6rem;
+            border-radius: .3rem;
+            font-size: .9rem;
+            font-weight: weight(medium);
+            @include flexDetailPosition(row, center, stretch);
+            margin-top: 5px;
+            transition: all .5s;
+
+            &:hover {
+                background-color: $dev-color3;
+                color: $dev-color2;
+            }
+            svg {
+                margin-right: 4px;
+                font-size: 1.2rem;
+            }
+        }
+        // end of button css
+        footer{
+            margin-top: 3em;
+            a,a:visited{
+                color: $primary-color;
+                background-color: $dev-color2;
+                text-decoration: none;
+            }
+
+        }
+    }
+
+
+    &__right{
+        @include flexDetailPosition(row, center, center);
+
+        img{
+            width: 100%;
+            max-width:550px ;
+        }
+    }
+}

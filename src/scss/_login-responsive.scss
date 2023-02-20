@@ -1,0 +1,70 @@
+//**large-mobile queries** 
+@include media-lg-mobile {
+    .login {
+
+        &__left {
+            grid-column: 1/3;
+            grid-row: 1/2;
+            z-index: 1;
+            // padding: 3em 2.5em 0 2.5em;
+            &__wrapper {
+                max-width: 650px;
+            }
+            .lendsqr-logo {
+                z-index: 3;
+                opacity: 0;
+            }
+
+            &__center {
+                img {
+                    width: 100%;
+                    max-width: 550px;
+                }
+            }
+        }
+
+
+        &__right {
+            grid-column: 1/3;
+            grid-row: 1/2;
+            z-index: 2;
+            opacity: .9;
+
+            .lendsqr-logo {
+                max-width: 145px;
+                // position: fixed;
+                // top: 2rem;
+                // left: 1rem;
+                height: 47px;
+            }
+
+            h1{
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+//**small-mobile queries** 
+@include media-mobile {
+    .login{
+        &__right {
+            
+            &__wrapper {
+                width: 370px;
+                padding: 0 15px;
+            }
+            .lendsqr-logo {
+                max-width: 130px;
+                &__name {
+                    flex-basis: 85%;
+                    padding-top: 5.5px;
+                }
+            }
+    
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.dash-content{
+    margin-left: 240px;
+    @include transition-ease;
+}
+
+// *** Responsiveness ***
+@include media-lg-desktop {
+    .dash-content {
+        margin-left:0;
+    }
+}

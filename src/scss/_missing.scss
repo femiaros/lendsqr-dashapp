@@ -1,0 +1,36 @@
+.missing{
+    background-color: $secondary-color;
+    min-height: 600px;
+    height: 100vh;
+    font-family: $nunito-family;
+    @include flexDetailPosition(column, center, center);
+
+    svg{
+        color: $dev-color4;
+        font-size: 4em;
+    }
+    span{
+        color: $dev-color3;
+        font-size: .8rem;
+        font-weight: weight(semibold);
+    }
+}
+
+.error-page{
+    background-color: $secondary-color;
+    min-height: 400px;
+    height: calc(100vh - 100px);
+    font-family:$work-family;
+    @include flexDetailPosition(column, center, center);
+
+    svg {
+        color: $dev-color4;
+        font-size: 4em;
+    }
+
+    span {
+        color: $dev-color3;
+        font-size: .8rem;
+        font-weight: weight(semibold);
+    }
+}

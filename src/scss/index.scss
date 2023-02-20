@@ -1,0 +1,10 @@
+// partials import
+@import './resets', './variables', './config';
+
+body { 
+    color: $dev-color3;
+    // overflow-x: hidden;
+}
+
+// partials import
+@import './lendsqr-logo','./public','./public-responsive','./login','./login-responsive','./dash-header','./dash-nav','./dash-content','./dash-overlay','./load-screen','./dashboard','./dashboard-menu','./dashboard-body','./userslist','./coaster-btn','./userinfo','./missing';

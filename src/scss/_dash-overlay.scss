@@ -1,0 +1,26 @@
+.dash-overlay{
+    background-color: #21407d1b;
+    @include transition-ease;
+
+    &.show{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 18;
+    }
+}
+
+.dash-overlay-transparent{
+    @include transition-ease;
+
+    &.show{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+    }
+}

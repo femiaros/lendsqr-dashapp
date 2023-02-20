@@ -1,0 +1,195 @@
+.dash-nav{
+    a,a:visited{
+        color: $dev-color;
+        text-decoration: none;
+    }
+
+    font-family: $work-family;
+    color: $dev-color;
+    background-color: $primary-color;
+    position: fixed;
+    padding:20px 0;
+    width: 240px;
+    left: 0;
+    z-index: 9;
+    @include transition-ease;
+    height: calc(100% - 93px);
+    overflow-y: auto;
+    
+    &__container{
+        @include flexPosition(column);
+    }
+
+    &__top {
+        text-transform: capitalize;
+        
+
+        &__link {
+            cursor: pointer;
+            min-height: 40px;
+            padding-left: 20px;
+            font-size: .85rem;
+            text-decoration:none; 
+            @include flexDetailPosition(row, center,flex-start);
+            &:hover,
+            &:focus {
+                background-color: $bg-hover;
+            }
+
+            svg {
+                margin-right: 4px;
+                font-size: 1.2rem;
+                pointer-events: none;
+            }
+
+            &-name {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    margin-left: 4px;
+                    padding-top: 1px;
+                    transform: rotate(-90deg);
+                    @include transition-ease;
+
+                    svg {
+                        margin: auto;
+                        font-size: .9rem;
+                    }
+                }
+            }
+
+            &.open {
+                .dash-nav__top__link-name .icon{
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        &__list{
+            padding-left: 40px;
+            @include transition-ease;
+            overflow: hidden;
+            height: 0;
+
+            &-item {
+                position: relative;
+                padding: 6px 0;
+                opacity: .7;
+                font-size: .8rem;
+                cursor: pointer;
+                @include transition-ease;
+                &:hover,
+                &:focus {
+                    opacity: 1;
+                    font-style: italic;
+                }
+            }
+            &.open {
+                height: 80.10px;
+            }
+        }
+    }
+
+    &__category {
+        text-transform: capitalize;
+
+        &__title {
+            @include flexDetailPosition(row, center, stretch);
+            min-height: 40px;
+            padding-left: 20px;
+            font-size: .8rem;
+            font-weight: weight(bold);
+            text-transform: uppercase;
+        }
+        &__link {
+            cursor: pointer;
+            @include flexDetailPosition(row, center, stretch);
+            padding-left: 20px;
+            min-height: 35px;
+            font-size: .85rem;
+            opacity: .7;
+            &.users{opacity: 1;}
+            margin-bottom: 7px;
+            svg {
+                margin-right: 5px;
+                font-size: 1rem;
+                pointer-events: none;
+            }
+
+            &:active,
+            &:hover,
+            &:focus {
+                opacity: 1;
+                background-color: $bg-hover;
+            }
+
+        }
+    }
+
+}
+
+// *** Responsiveness ***
+@include media-lg-desktop {
+    .dash-nav {
+        left: -600px;
+        &.open {  left: 0 }
+        @include little-fade;
+        &::-webkit-scrollbar {width: 3px;}
+    }
+}
+
+@include media-mobile {
+    .dash-nav {
+        padding:13px 0;
+        width: 235px;
+
+        &__top {
+            &__link {
+                min-height: 38px;
+                padding-left: 13px;
+                font-size: .85rem;
+                svg {font-size: 1.1rem;}
+
+                &-name {
+                    .icon {
+                        padding-top: 0;
+                        padding-right: 3px;
+
+                        svg {
+                            font-size: .85rem;
+                        }
+                    }
+                }
+
+                &.open {
+                    .dash-nav__top__link-name .icon {
+                        padding-top: 4px;
+                        padding-right: 0;
+                    }
+                }
+            }
+
+            &__list {
+                padding-left: 38px;
+                &-item {
+                    font-size: .76rem;
+                }
+            }
+        }
+
+        &__category {
+            &__title {
+                min-height: 36px;
+                padding-left: 13px;
+                font-size: .8rem;
+            }
+
+            &__link {
+                min-height: 30px;
+                font-size: .85rem;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
