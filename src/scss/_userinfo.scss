@@ -291,7 +291,6 @@
 
             &__back {
                 font-size: .8rem;
-                margin-bottom: 10px;
         
                 svg {
                     margin-top: 1px;
@@ -300,7 +299,7 @@
                 }
             }
             &__title {
-                margin-bottom: 15px;
+                margin-bottom: 25px;
 
                 .title-title {
                     font-size: 1.2rem;
@@ -369,7 +368,7 @@
 @include media-mobile {
     .userinfo {
         &__header {
-            padding: 15px 7px 10px;
+            padding: 15px 9px 10px;
 
             &__back {
                 font-size: .75rem;
@@ -383,7 +382,7 @@
             &__title {
 
                 .title-title {
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                 }
                 .title-controls {
                     font-size: .6em;
@@ -401,7 +400,7 @@
                 border-radius: .3em;
 
                 &__details {
-                    padding: 10px 9px 7px;
+                    padding: 10px 0 7px 10px;
                     flex-wrap: wrap;
 
                     .details__profile {
@@ -461,11 +460,11 @@
             }        
         }
         &__body {
-            padding: 10px 7px 15px;
+            padding: 10px 9px 15px;
 
             &__detail-box {
                 border-radius: .3em;
-                padding:10px 9px;
+                padding:10px;
         
                 .general-field {
         
@@ -479,7 +478,7 @@
                             margin-bottom: 16px;
         
                             &__title {
-                                font-size: .68rem;
+                                font-size: .73rem;
                                 margin-bottom: 6px;
                                 min-width: 145px;
                             }

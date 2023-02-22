@@ -6,6 +6,7 @@ import { useEffect} from "react"
 import LoadScreen from "../../components/LoadScreen"
 import ErrorPage from "../../components/ErrorPage"
 import AutoPageUp from "../../components/AutoPageUp"
+import useTitle from "../../hooks/useTitle"
 
 const Dashboard = ({setSearch}) => {
   useEffect(()=>{
@@ -16,6 +17,7 @@ const Dashboard = ({setSearch}) => {
   },[])
 
   // *** required states ***
+  useTitle('Dashboard - Lendsqr Dashapp') // <<< set page title
   const userStatus = useSelector(getUsersStatus)
   const error = useSelector(getUsersError)
 

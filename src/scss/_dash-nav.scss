@@ -148,17 +148,11 @@
             &__link {
                 min-height: 38px;
                 padding-left: 13px;
-                font-size: .85rem;
-                svg {font-size: 1.1rem;}
 
                 &-name {
                     .icon {
                         padding-top: 0;
                         padding-right: 3px;
-
-                        svg {
-                            font-size: .85rem;
-                        }
                     }
                 }
 
@@ -172,22 +166,16 @@
 
             &__list {
                 padding-left: 38px;
-                &-item {
-                    font-size: .76rem;
-                }
             }
         }
 
         &__category {
             &__title {
-                min-height: 36px;
                 padding-left: 13px;
-                font-size: .8rem;
             }
 
             &__link {
-                min-height: 30px;
-                font-size: .85rem;
+                padding-left: 13px;
                 margin-bottom: 5px;
             }
         }

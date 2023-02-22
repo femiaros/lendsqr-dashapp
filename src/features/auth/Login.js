@@ -7,6 +7,7 @@ import { useRef, useState, useEffect } from "react"
 import { useDispatch } from 'react-redux'
 import {Link as LinkR,useNavigate,useLocation} from "react-router-dom"
 import PulseLoader from 'react-spinners/PulseLoader'
+import useTitle from "../../hooks/useTitle"
 
 // Email && pwd regex validation
 const EMAIL_REGEX = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})$/
@@ -17,6 +18,8 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const dispatch = useDispatch()
+    useTitle('Login - Lendsqr Dashapp') // <<< set page title
+
     // set location path to where user is coming from or if user is just logging in send user to dashboard.
     const from = location.state?.from?.pathname || "/dashboard"
 

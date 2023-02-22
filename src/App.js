@@ -13,10 +13,12 @@ import UserInfo from './features/user/UserInfo'
 import RequireAuth from './features/auth/RequireAuth'
 import Prefetch from './features/auth/Prefetch'
 import { ROLES } from './config/roles'
+import useTitle from './hooks/useTitle'
 
 function App() {
   //***required states***
   const [search, setSearch] = useState('') // <<< search control states
+  useTitle('Lendsqr Dashapp') // <<< set page title
 
   return (
    <Routes>
@@ -51,7 +53,7 @@ function App() {
             </Route>{/* End Dash */}
 
           </Route>
-        </Route>{/* End Protected Routes */}
+        </Route> {/* End Protected Routes */}
 
         <Route path="*" element={<Missing />} />  {/* catch all */}
 

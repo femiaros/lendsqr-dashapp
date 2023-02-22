@@ -44,14 +44,14 @@
                 background-color: transparent;
                 border-radius: 0.4rem 0 0 0.4rem;
                 border: none;
-                border: 2px solid #e4e8f4;
+                border: 2px solid #e3e7f4;
 
                 &:hover,
                 &:focus {
                     outline: 2px solid $dev-color2;
                 }
                 &::placeholder {
-                    color: #e4e8f4;
+                    color: #abb2c8;
                 }
             }
 
@@ -276,7 +276,7 @@
                 top: 7px;
                 right: 7px;
                 cursor: pointer;
-                svg{font-size: 1.3rem; margin: auto}
+                svg{font-size: 1.5rem; margin: auto}
             }
             &-bar {
                 @include flexDetailPosition(column, stretch, stretch);
@@ -373,16 +373,15 @@
 
 @include media-mobile{
     .dash-header {
-        padding: 13px 7px 15px;
-
-        &__bars {
-            font-size: 1.5rem;
+        padding: 13px 9px 15px;
+        &__bars{
+            padding-top: 6px;
         }
-    
         &__logo {
+            padding-top: 3px;
             width: max-content;
             .lendsqr-logo {
-                max-width: 100px;
+                max-width: 120px;
             }
         }
 
@@ -404,7 +403,7 @@
             height: 35px;
         }
         &__info {
-            top: 107px;
+            top: 114px;
         }
     }
 }

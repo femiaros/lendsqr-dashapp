@@ -78,8 +78,6 @@ const usersSlice = createSlice({
                     active: !existingUser.status.active, 
                     blacklist: existingUser.status.blacklist
                 }
-                console.log('***status chnaged***')
-                console.log(existingUser.status.active)
             }
         }
 

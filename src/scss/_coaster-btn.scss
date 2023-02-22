@@ -5,7 +5,7 @@
 }
 
 .CoasterBtns {
-    margin: auto;
+    margin-right: auto;
     position: relative;
     width: 240px;
     height: 30px;
@@ -16,7 +16,7 @@
 
 .CoasterBtns .CoasterBtns__prev,
 .CoasterBtns .CoasterBtns__next {
-    background-color: #E5E8EE;
+    background-color: $dev-color;
     width: 30px;
     height: 30px;
     display: flex;
@@ -29,7 +29,7 @@
 }
 
 .CoasterBtns svg {
-    color: $dev-color;
+    color: $primary-color;
     font-size: .8em;
 }
 
@@ -53,6 +53,8 @@
 }
 
 .CoasterBtns .page {
+    background-color: $primary-color;
+    border: 1px solid $dev-color;
     color: $dev-color;
     width: 30px;
     height: 30px;
@@ -69,3 +71,10 @@
 }
 
 /***Coaster style ends***/
+
+// Responsiveness
+@include media-mobile {
+    .CoasterBtns .page {
+        font-size: .8em;
+    }
+}

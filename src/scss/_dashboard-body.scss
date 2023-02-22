@@ -1,5 +1,35 @@
 .dashboard-body{
     background-color: $secondary-color;
     margin-top: 5px;
-    height: 500px;
+    height: 400px;
+    padding: 20px ;
+
+    .bar-chart{
+        margin: auto;
+        height: 300px;
+        width:500px;
+        padding: 2px;
+        box-shadow: 0 0 7px #d2d2d2;
+        border-radius: .4em;
+        background-color: $primary-color;
+        font-weight: weight(semibold);
+
+    }
+}
+
+@include media-mobile-forced{
+    .dashboard-body {
+        padding: 20px;
+
+        .bar-chart {
+            height: 250px;
+            width: 100%;
+        }
+    }
+}
+
+@include media-mobile{
+    .dashboard-body {
+        padding: 20px 10px 20px;
+    }
 }

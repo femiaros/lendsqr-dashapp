@@ -38,6 +38,11 @@
         @content;
     }
 };
+@mixin media-mobile-forced{
+    @media screen and (max-width:550px){
+        @content;
+    }
+};
 @mixin media-mobile{
     @media screen and (max-width:500px){
         @content;

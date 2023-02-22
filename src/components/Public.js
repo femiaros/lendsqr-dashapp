@@ -2,8 +2,12 @@ import Lendsqrlogo from "./LendsqrLogo"
 import lendsqr_vector from "../svgs/lendsqr_vector.svg"
 import {FaPhoneSquareAlt,FaHandPointRight} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import useTitle from "../hooks/useTitle"
 
 const Public = () => {
+    // *** required state ***
+    useTitle('Public - Lendsqr Dashapp') // <<< set page title
+
     const content = (
         <section className="public">
             {/* public left-side panel */}
@@ -14,7 +18,7 @@ const Public = () => {
                 
                 <main className="public__left__main">
                     <p className="public__left__main-locaion">
-                        Located in Beautiful Downtown Lasgidi City. Build, launch and scale your lending business across multiple channels in a faster time to market at a fraction of the cost.
+                        Located in Beautiful Downtown Lasgidi City Bla bla Bla. Dashapp comprises of four (5) pages, public facing page,the Dashboard, users page, actives pages, and user detail page.
                     </p>
 
                     <address className="public__left__main-addr">
