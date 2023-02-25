@@ -1,4 +1,4 @@
-# Lendsqr-Dashapp, Frontend-App Readme-md
+# Lendsqr-Dashapp, Frontend-App
 
 ## Tools and Languages
 
@@ -9,6 +9,8 @@
 - SCSS
 
 ## Design
+
+![screencapture-lendsqr dashapp](/src/images/Project-banner.png)
 
 ---
 
@@ -29,3 +31,9 @@ App comprises of 5 pages
 - User Details Page : Displays detailed info of a particular dummy user returned from the api.
 
 - Page not found : To catch routes not existing in application
+
+---
+
+## Check out project
+
+- :link: [Project live online](https://lendsqr-dashapp.netlify.app/ "lendsqr-dashapp")

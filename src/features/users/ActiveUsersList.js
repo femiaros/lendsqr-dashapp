@@ -8,11 +8,14 @@ import UsersListTbodyRow from "./UsersListTbodyRow"
 import UserMoreMenu from "./UserMoreMenu"
 import EditUserForm from "./EditUserForm"
 import UsersListFooter from "./UsersListFooter"
+import ErrorPage from "../../components/ErrorPage"
 import LoadScreen from "../../components/LoadScreen"
+import useTitle from "../../hooks/useTitle"
 import AutoPageUp from "../../components/AutoPageUp"
 
 const ActiveUsersList = ({setSearch}) => {
   // ***required states***
+  useTitle('Actives - Lendsqr Dashapp') // <<< set page title
   const dispatch = useDispatch()
   const FirstTenActives  = useSelector(state => selectFirstTenActives(state))
   const ActiveUsersIds  = useSelector(state => selectActiveUsersIds(state))
@@ -90,7 +93,9 @@ const ActiveUsersList = ({setSearch}) => {
       </div>
     )
   }else if(usersStatus === 'failed'){
-    content = <p>{error}</p>
+    content =(
+      <ErrorPage msg={error}/>
+    )
   }
 
 

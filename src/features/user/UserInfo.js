@@ -1,13 +1,17 @@
 import { useParams } from 'react-router-dom'
+import LoadScreen from '../../components/LoadScreen'
+import ErrorPage from '../../components/ErrorPage'
 import UserInfoHeader from "./UserInfoHeader"
 import UserInfoBody from "./UserInfoBody"
 import { useSelector,useDispatch} from "react-redux"
 import { selectUserById,updateMoreMenuOpenState,getUsersStatus, getUsersError} from "../users/usersSlice"
-import {useEffect} from "react";
+import {useEffect} from "react"
+import useTitle from '../../hooks/useTitle'
 import AutoPageUp from '../../components/AutoPageUp'
 
 const UserInfo = () => {
     //***required states && functions***
+    useTitle('User page - Lendsqr Dashapp') // <<< set page title
     const { userId } = useParams()
     const dispatch = useDispatch()
      
@@ -25,7 +29,9 @@ const UserInfo = () => {
     let content
 
     if (usersStatus === 'loading') {
-        content = <p>...Loading ...Loading ...UsersList</p>
+        content = (
+            <LoadScreen/>
+        )
     }else if(usersStatus === 'succeeded'){
 
         content = (
@@ -36,7 +42,9 @@ const UserInfo = () => {
         )
 
     }else if(usersStatus === 'failed'){
-        content = <p>{error}</p>
+        content =(
+            <ErrorPage msg={error}/>
+        )
     }
 
 

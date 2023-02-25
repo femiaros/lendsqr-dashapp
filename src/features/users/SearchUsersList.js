@@ -9,10 +9,13 @@ import UserMoreMenu from "./UserMoreMenu"
 import EditUserForm from "./EditUserForm"
 import UsersListFooter from "./UsersListFooter"
 import LoadScreen from "../../components/LoadScreen"
+import ErrorPage from "../../components/ErrorPage"
+import useTitle from "../../hooks/useTitle"
 import AutoPageUp from "../../components/AutoPageUp"
 
 const SearchUsersList = ({search}) => {
   // ***required states***
+  useTitle('Search - Lendsqr Dashapp') // <<< set page title
   const dispatch = useDispatch()
   const SearchUsersIds  = useSelector(state => selectSearchUsersIds(state, search))
   const searchUsersLenght = SearchUsersIds.length
@@ -94,7 +97,9 @@ const SearchUsersList = ({search}) => {
       </div>
     )
   }else if(usersStatus === 'failed'){
-    content = <p>{error}</p>
+    content =(
+      <ErrorPage msg={error}/>
+    )
   }
 
 

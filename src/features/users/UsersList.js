@@ -9,6 +9,7 @@ import UserMoreMenu from "./UserMoreMenu"
 import EditUserForm from "./EditUserForm"
 import UsersListFooter from "./UsersListFooter"
 import LoadScreen from "../../components/LoadScreen"
+import ErrorPage from "../../components/ErrorPage"
 import AutoPageUp from "../../components/AutoPageUp"
 
 const UsersList = ({setSearch}) => {
@@ -91,7 +92,9 @@ const UsersList = ({setSearch}) => {
       </div>
     )
   }else if(userStatus === 'failed'){
-    content = <p>{error}</p>
+    content =(
+      <ErrorPage msg={error}/>
+    )
   }
 
 
