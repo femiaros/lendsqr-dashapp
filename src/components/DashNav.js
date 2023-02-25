@@ -18,7 +18,7 @@ const DashNav = ({toggleOrganization,setToggleOrganization,toggleMainMenu,setTog
 
   const closeMainMenu= ()=>{
     // hide main menu 
-    setToggleMainMenu(prev=> !prev)
+    setToggleMainMenu(false)
   }
 
     const content = (

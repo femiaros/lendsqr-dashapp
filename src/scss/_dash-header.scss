@@ -11,7 +11,12 @@
     &__container {
         @include flexDetailPosition(row, center, stretch);
     }
-    &__bars{display: none; }
+    &__bars{
+        display: none; 
+        &:focus {
+            outline: none;
+        }
+    }
     &__employee{display: none; }
 
     &__logo {

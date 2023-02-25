@@ -35,7 +35,7 @@ body {
   width: 100%;
 }
 .lendsqr-logo:focus {
-  outline: 2px solid #39CDCC;
+  outline: none;
 }
 
 .public {
@@ -458,6 +458,9 @@ body {
 }
 .dash-header__bars {
   display: none;
+}
+.dash-header__bars:focus {
+  outline: none;
 }
 .dash-header__employee {
   display: none;
