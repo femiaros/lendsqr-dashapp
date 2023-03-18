@@ -445,7 +445,7 @@ body {
   top: 0;
   width: 100%;
   box-shadow: 0 0 7px #d2d2d2;
-  z-index: 10;
+  z-index: 100;
 }
 .dash-header.disabled {
   position: static;
@@ -892,13 +892,19 @@ body {
   padding-left: 20px;
   font-size: 0.85rem;
   text-decoration: none;
+  border-radius: 18px 0 0 18px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
 }
-.dash-nav__top__link:hover, .dash-nav__top__link:focus {
-  background-color: #F3FCFC;
+.dash-nav__top__link:nth-child(1) {
+  background-color: #213F7D;
+  color: #fff;
+  transition: all ease-in-out 0.5s;
+}
+.dash-nav__top__link:nth-child(1):hover {
+  background-color: rgba(33, 64, 125, 0.9254901961);
 }
 .dash-nav__top__link svg {
   margin-right: 4px;
@@ -921,6 +927,13 @@ body {
 }
 .dash-nav__top__link.open .dash-nav__top__link-name .icon {
   transform: rotate(0deg);
+}
+.dash-nav__top__link.dashboard {
+  margin-top: 7px;
+  background-color: transparent;
+}
+.dash-nav__top__link.dashboard:hover {
+  background-color: #F3FCFC;
 }
 .dash-nav__top__list {
   padding-left: 40px;
@@ -966,6 +979,7 @@ body {
   padding-left: 20px;
   min-height: 35px;
   font-size: 0.85rem;
+  border-radius: 18px 0 0 18px;
   opacity: 0.7;
   margin-bottom: 7px;
 }
@@ -1088,8 +1102,69 @@ body {
 
 .dashboard {
   font-family: "Work Sans", sans-serif;
+  background-color: #f8f8fa;
+}
+.dashboard__footer {
+  margin-top: 20px;
+  background-color: #fff;
+  color: #213F7D;
+  padding: 20px 30px;
+}
+.dashboard__footer__container {
+  margin: auto;
+  max-width: 1010px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+.dashboard__footer__container .year, .dashboard__footer__container .text {
+  font-size: 0.85em;
+  font-weight: 600;
+}
+.dashboard__footer__container .year {
+  margin-right: 4px;
+  margin-left: 3px;
+  font-size: 1em;
+}
+.dashboard__footer__container .logo .lendsqr-logo {
+  max-width: 87px;
+}
+.dashboard__footer__container .logo .lendsqr-logo__icon {
+  flex-basis: 15%;
+  margin-right: 3px;
+}
+.dashboard__footer__container .logo .lendsqr-logo__name {
+  flex-basis: 85%;
+  padding-top: 5px;
 }
 
+@media screen and (max-width: 1050px) {
+  .dashboard__footer {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .dashboard__footer {
+    padding: 17px 10px;
+  }
+  .dashboard__footer__container {
+    justify-content: center;
+  }
+  .dashboard__footer__container .year,
+.dashboard__footer__container .text {
+    font-size: 0.83em;
+  }
+  .dashboard__footer__container .year {
+    font-size: 1em;
+  }
+  .dashboard__footer__container .logo .lendsqr-logo {
+    max-width: 82px;
+  }
+  .dashboard__footer__container .logo .lendsqr-logo__name {
+    padding-top: 6px;
+  }
+}
 .dashboard-menu {
   background-color: #f8f8fa;
   padding: 20px 30px;
@@ -1296,35 +1371,369 @@ body {
     font-size: 0.9rem;
   }
 }
-.dashboard-body {
-  background-color: #f8f8fa;
-  margin-top: 5px;
-  height: 400px;
-  padding: 20px;
+.dashboard__banner {
+  padding: 10px 30px;
 }
-.dashboard-body .bar-chart {
+.dashboard__banner__container {
+  background-image: linear-gradient(45deg, #1b222f, #213F7D);
   margin: auto;
-  height: 300px;
-  width: 500px;
-  padding: 2px;
+  max-width: 1010px;
+  height: 210px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 3px #5a6478;
+  transition: all ease-in-out 0.5s;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: row;
+}
+.dashboard__banner__container:hover {
+  transform: scale(1.03);
+}
+.dashboard__banner__text {
+  font-family: "Work Sans", sans-serif;
+  flex-basis: 52%;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+}
+.dashboard__banner__text h2 {
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+.dashboard__banner__text p {
+  font-family: "Nunito", sans-serif;
+  margin-top: 6px;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  line-height: 19px;
+}
+.dashboard__banner__text .btn {
+  font-family: "Nunito", sans-serif;
+  display: inline-block;
+  margin-top: 18px;
+  background-color: #213F7D;
+  width: 110px;
+  height: 40px;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  font-weight: 600;
+  box-shadow: 0 0 7px rgb(62, 130, 221);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.dashboard__banner__text .btn:hover {
+  transform: scale(1.03);
+}
+.dashboard__banner__photo {
+  flex-basis: 48%;
+  height: 100%;
+  position: relative;
+}
+.dashboard__banner__photo-overlay, .dashboard__banner__photo-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.dashboard__banner__photo-wrapper {
+  border-radius: 24% 0% 0% 13%/44% 10% 10% 38%;
+  overflow: hidden;
+}
+.dashboard__banner__photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard__banner {
+    padding: 10px 20px;
+  }
+  .dashboard__banner__text {
+    padding: 15px;
+  }
+  .dashboard__banner__text h2 {
+    font-size: 1.3em;
+    line-height: 28px;
+  }
+  .dashboard__banner__text p {
+    font-size: 0.87em;
+  }
+  .dashboard__banner__text .btn {
+    margin-top: 17px;
+    width: 100px;
+    height: 38px;
+  }
+}
+@media screen and (max-width: 572px) {
+  .dashboard__banner {
+    padding: 10px 20px;
+  }
+  .dashboard__banner__container {
+    display: block;
+    position: relative;
+  }
+  .dashboard__banner__text {
+    position: absolute;
+    z-index: 2;
+  }
+  .dashboard__banner__photo {
+    top: 0;
+    left: 30%;
+    height: 100%;
+    width: 70%;
+    position: absolute;
+  }
+  .dashboard__banner__photo-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(27, 34, 47, 0.6117647059);
+  }
+}
+@media screen and (max-width: 500px) {
+  .dashboard__banner {
+    padding: 10px;
+  }
+  .dashboard__banner__text h2 {
+    font-size: 1.2em;
+  }
+  .dashboard__banner__photo-wrapper {
+    border-radius: 62% 0% 0% 10%/62% 10% 10% 33%;
+  }
+}
+.dashboard-body {
+  padding: 25px 30px 20px;
+}
+.dashboard-body__container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dashboard-body__container h2 {
+  flex-basis: 100%;
+  color: #213F7D;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.dashboard-body__container__table-wrapper {
+  flex-basis: 60%;
+  box-shadow: 0 0 3px #5a6478;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 5px 0 5px 10px;
+  margin-bottom: 20px;
+}
+.dashboard-body__container__table-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.dashboard-body__container__table-wrapper table thead tr {
+  font-size: 0.8em;
+  color: #213F7D;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.dashboard-body__container__table-wrapper table thead tr th {
+  padding: 10px 0;
+}
+.dashboard-body__container__table-wrapper table thead tr th .holder {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: row;
+}
+.dashboard-body__container__table-wrapper table thead tr th:nth-child(1) .holder {
+  padding-left: 5px;
+}
+.dashboard-body__container__table-wrapper table thead tr th:nth-child(3) .holder {
+  justify-content: center;
+}
+.dashboard-body__container__table-wrapper table thead tr th .icon {
+  margin-left: 5px;
+  color: #fc7b9b;
+  background-color: #fde5eb;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+}
+.dashboard-body__container__table-wrapper table thead tr th .icon svg {
+  margin: auto;
+  font-size: 1.2em;
+}
+.dashboard-body__container__table-wrapper table thead tr th.username .icon {
+  color: #ec72ff;
+  background-color: #f8d7fd;
+}
+.dashboard-body__container__table-wrapper table thead tr th.status .icon {
+  color: #213F7D;
+  background-color: rgba(33, 64, 125, 0.1882352941);
+}
+.dashboard-body__container__table-wrapper table thead tr th.balance .icon {
+  color: #67D987;
+  background-color: #F3FCF6;
+}
+.dashboard-body__container__table-wrapper table tbody tr {
+  cursor: pointer;
+  font-size: 0.77rem;
+  text-transform: capitalize;
+  transition: all ease-in-out 0.5s;
+}
+.dashboard-body__container__table-wrapper table tbody tr:last-of-type {
+  border: none;
+}
+.dashboard-body__container__table-wrapper table tbody tr:hover {
+  transform: translateX(2px);
+  background-color: rgba(24, 49, 85, 0.0352941176);
+}
+.dashboard-body__container__table-wrapper table tbody tr td {
+  padding: 10px 0;
+  color: #5a6478;
+}
+.dashboard-body__container__table-wrapper table tbody tr td:nth-child(1) {
+  padding-left: 5px;
+  font-weight: 600;
+  color: #213F7D;
+}
+.dashboard-body__container__table-wrapper table tbody tr td:nth-child(1) .holder {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: row;
+}
+.dashboard-body__container__table-wrapper table tbody tr td:nth-child(1) img {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.dashboard-body__container__table-wrapper table tbody tr td:nth-child(3) {
+  text-align: center;
+}
+.dashboard-body__container__table-wrapper table tbody tr td:nth-child(4) {
+  padding-left: 5px;
+  font-weight: 600;
+  color: #213F7D;
+}
+.dashboard-body__container__table-wrapper table tbody tr td:nth-child(4) .naira {
+  text-decoration: line-through;
+}
+.dashboard-body__container__table-wrapper table tbody tr td .indicator {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.4em 0.6em;
+  background-color: #f8d7fd;
+  color: #ec72ff;
+  border-radius: 0.8em;
+}
+.dashboard-body__container__table-wrapper table tbody tr td .indicator.active {
+  background-color: #F3FCF6;
+  color: #67D987;
+}
+.dashboard-body__container__table-wrapper table tbody tr td .indicator.blacklist {
+  background-color: #fde5eb;
+  color: #fc7b9b;
+}
+.dashboard-body__container .chart {
+  flex-basis: 36%;
+  height: 327px;
+  width: 400px;
+  padding: 8px;
   box-shadow: 0 0 7px #d2d2d2;
-  border-radius: 0.4em;
+  border-radius: 15px;
   background-color: #fff;
   font-weight: 600;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1050px) {
   .dashboard-body {
-    padding: 20px;
+    padding: 25px 20px 20px;
   }
-  .dashboard-body .bar-chart {
-    height: 250px;
-    width: 100%;
+}
+@media screen and (max-width: 880px) {
+  .dashboard-body__container__table-wrapper {
+    flex-basis: 62%;
+  }
+  .dashboard-body__container .chart {
+    flex-basis: 37%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .dashboard-body__container__table-wrapper {
+    flex-basis: 100%;
+  }
+  .dashboard-body__container .chart {
+    flex-basis: 100%;
   }
 }
 @media screen and (max-width: 500px) {
   .dashboard-body {
     padding: 20px 10px 20px;
+  }
+  .dashboard-body__container h2 {
+    font-size: 1.1rem;
+  }
+  .dashboard-body__container__table-wrapper {
+    margin-bottom: 30px;
+    overflow-x: auto;
+  }
+  .dashboard-body__container__table-wrapper::-webkit-scrollbar {
+    height: 0;
+  }
+  .dashboard-body__container__table-wrapper table {
+    min-width: 446.6px;
+  }
+  .dashboard-body__container__table-wrapper table thead tr {
+    font-size: 0.73em;
+  }
+  .dashboard-body__container__table-wrapper table thead tr th {
+    padding: 7px 0;
+  }
+  .dashboard-body__container__table-wrapper table thead tr th:nth-child(1) .holder {
+    padding-left: 4px;
+  }
+  .dashboard-body__container__table-wrapper table thead tr th .icon {
+    width: 22px;
+    height: 22px;
+  }
+  .dashboard-body__container__table-wrapper table thead tr th .icon svg {
+    font-size: 1.1em;
+  }
+  .dashboard-body__container__table-wrapper table tbody tr {
+    font-size: 0.75rem;
+  }
+  .dashboard-body__container__table-wrapper table tbody tr td {
+    padding: 8px 0;
+  }
+  .dashboard-body__container__table-wrapper table tbody tr td:nth-child(1) img {
+    width: 31px;
+    height: 31px;
+  }
+  .dashboard-body__container__table-wrapper table tbody tr td:nth-child(3) {
+    font-size: 0.69rem;
+  }
+  .dashboard-body__container__table-wrapper table tbody tr td .indicator {
+    font-size: 0.64rem;
+  }
+  .dashboard-body__container .chart {
+    padding: 7px 5px;
   }
 }
 .userslist {

@@ -28,6 +28,16 @@
         @content;
     }
 };
+@mixin media-graph{
+    @media screen and (max-width:880px){
+        @content;
+    }
+};
+@mixin media-graph-forced{
+    @media screen and (max-width:850px){
+        @content;
+    }
+};
 @mixin media-lg-mobile{
     @media screen and (max-width:800px){
         @content;
@@ -35,6 +45,11 @@
 };
 @mixin media-lg-forced{
     @media screen and (max-width:750px){
+        @content;
+    }
+};
+@mixin media-banner-forced{
+    @media screen and (max-width:572px){
         @content;
     }
 };

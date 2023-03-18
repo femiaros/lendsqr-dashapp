@@ -1,3 +1,77 @@
 .dashboard{
     font-family: $work-family;
+    background-color: $secondary-color;
+
+    &__footer{
+        margin-top: 20px;
+        background-color: $primary-color;
+        color: $dev-color;
+        padding: 20px 30px;
+
+        &__container {
+            margin: auto;
+            max-width: 1010px;
+            @include flexDetailPosition(row, center, flex-end);
+
+            .year,.text{
+                font-size: .85em;
+                font-weight: weight(semibold);
+            }
+            .year{
+                margin-right: 4px;
+                margin-left: 3px;
+                font-size: 1em;
+            }
+            .logo{
+            
+                .lendsqr-logo {
+                    max-width: 87px;
+                    &__icon {
+                        flex-basis: 15%;
+                        margin-right: 3px;
+                    }
+            
+                    &__name {
+                        flex-basis: 85%;
+                        padding-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// *** Responsiveness ***
+@include media-lg-desktop {
+    .dashboard__footer {
+        padding: 20px;
+    }
+}
+@include media-mobile {
+    .dashboard__footer {
+        padding: 17px 10px;
+        &__container {
+            justify-content: center;
+
+            .year,
+            .text {
+                font-size: .83em;
+            }
+        
+            .year {
+                font-size: 1em;
+            }
+        
+            .logo {
+        
+                .lendsqr-logo {
+                    max-width: 82px;
+        
+                    &__name {
+                        padding-top: 6px;
+                    }
+                }
+            }
+        }
+    }
 }

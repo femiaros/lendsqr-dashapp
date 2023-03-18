@@ -41,7 +41,7 @@ const DashBoardMenu = ({title,searchUsersLenght}) => {
                         'search-count'
                     }
                     >
-                        {searchUsersLenght}
+                        {searchUsersLenght} 
                     </span>
                 </div>
                 <div className="dashboard-menu__stats">

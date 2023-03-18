@@ -3,6 +3,7 @@ import LoadScreen from '../../components/LoadScreen'
 import ErrorPage from '../../components/ErrorPage'
 import UserInfoHeader from "./UserInfoHeader"
 import UserInfoBody from "./UserInfoBody"
+import DashBoardFooter from '../dashboard/DashBoardFooter'
 import { useSelector,useDispatch} from "react-redux"
 import { selectUserById,updateMoreMenuOpenState,getUsersStatus, getUsersError} from "../users/usersSlice"
 import {useEffect} from "react"
@@ -38,6 +39,7 @@ const UserInfo = () => {
             <div className='userinfo'>
                 <UserInfoHeader title={'User Details'} user={user}/>
                 <UserInfoBody user={user}/>
+                <DashBoardFooter/>
             </div>
         )
 

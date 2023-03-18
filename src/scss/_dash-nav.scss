@@ -30,11 +30,20 @@
             padding-left: 20px;
             font-size: .85rem;
             text-decoration:none; 
+            border-radius: 18px 0 0 18px;
             @include flexDetailPosition(row, center,flex-start);
-            &:hover,
-            &:focus {
-                background-color: $bg-hover;
+            
+            &:nth-child(1){
+                background-color: $dev-color;
+                color: $primary-color;
+                @include transition-ease;
+                
+                &:hover{
+                    background-color: #21407dec;
+                }
             }
+            
+            
 
             svg {
                 margin-right: 4px;
@@ -62,6 +71,14 @@
             &.open {
                 .dash-nav__top__link-name .icon{
                     transform: rotate(0deg);
+                }
+            }
+
+            &.dashboard {
+                margin-top: 7px;
+                background-color:transparent ;
+                &:hover {
+                    background-color: $bg-hover;
                 }
             }
         }
@@ -108,6 +125,7 @@
             padding-left: 20px;
             min-height: 35px;
             font-size: .85rem;
+            border-radius: 18px 0 0 18px;
             opacity: .7;
             &.users{opacity: 1;}
             margin-bottom: 7px;

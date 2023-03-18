@@ -46,7 +46,7 @@ const DashNav = ({toggleOrganization,setToggleOrganization,toggleMainMenu,setTog
             </ul>
 
             <LinkR to="/dashboard" 
-              className="dash-nav__top__link"
+              className="dash-nav__top__link dashboard"
               onClick={closeMainMenu}
             >
               <FaHome/> <>dashboard</>

@@ -129,6 +129,11 @@ export const selectActiveUsers = createSelector(
     (users) => users.filter((user) => user.status.active)
 )
 
+export const selectHighBalanceUsers = createSelector(
+    selectAllUsers,
+    (users) => users.filter((user,i) => i < 5).sort((a,b)=> parseFloat(b.accountBalance) - parseFloat(a.accountBalance))
+)
+
 export const selectFirstTenUsers = createSelector(
     selectAllUsers,
     (users) => users.filter((user,i) => i < 10).map(user=> user.id)

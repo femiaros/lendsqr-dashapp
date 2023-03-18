@@ -1,35 +1,265 @@
 .dashboard-body{
-    background-color: $secondary-color;
-    margin-top: 5px;
-    height: 400px;
-    padding: 20px ;
+    padding: 25px 30px 20px;
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
 
-    .bar-chart{
-        margin: auto;
-        height: 300px;
-        width:500px;
-        padding: 2px;
-        box-shadow: 0 0 7px #d2d2d2;
-        border-radius: .4em;
-        background-color: $primary-color;
-        font-weight: weight(semibold);
+        h2{
+            flex-basis: 100%;
+            color: $dev-color;
+            font-size: 1.3rem;
+            font-weight: weight(semibold);
+            margin-bottom: 18px;
+        }
 
-    }
-}
+        &__table-wrapper{
+            flex-basis: 60%;
+            @include little-fade;
+            border-radius: 15px;
+            background-color: $primary-color;
+            padding: 5px 0 5px 10px;
+            margin-bottom: 20px;
 
-@include media-mobile-forced{
-    .dashboard-body {
-        padding: 20px;
+            table{
+                border-collapse: collapse;
+                width: 100%;
+                
+                thead {
+                   
+                    tr {
+                        font-size: .8em;
+                        color: $dev-color;
+                        font-weight: weight(bold);
+                        text-transform: uppercase;
+            
+                        th {
+                            padding: 10px 0;
+                            
+                            .holder{
+                                @include flexDetailPosition(row, center, stretch);
+                            }
+                            &:nth-child(1) .holder{
+                                padding-left: 5px;
+                            }
+                            &:nth-child(3) .holder{
+                                justify-content: center;
+                            }
+                            .icon{
+                                margin-left: 5px;
+                                color: $dev-blacklist;
+                                background-color: $dev-blacklist-bg;
+                                width: 25px;
+                                height: 25px;
+                                border-radius: 50%;
+                                display: flex;
 
-        .bar-chart {
-            height: 250px;
-            width: 100%;
+                                svg {
+                                    margin: auto;
+                                    font-size: 1.2em;
+                                }
+                            }
+                            &.username .icon{
+                                color: $dev-user;
+                                background-color: $dev-user-bg;
+                            }
+                            &.status .icon{
+                                color: $dev-color;
+                                background-color: #21407d30;
+                            }
+                            &.balance .icon{
+                                color: $dev-active;
+                                background-color: $dev-active-bg;
+                            }
+                        }
+                    }
+                }
+
+                tbody {
+
+                    tr {
+                        cursor: pointer;
+                        font-size: .77rem;
+                        text-transform: capitalize;
+                        @include transition-ease;
+                
+                        &:last-of-type {
+                            border: none;
+                        }
+                
+                        &:hover {
+                            transform: translateX(2px);
+                            background-color: #18315509;
+                        }
+                
+                        td {
+                            padding: 10px 0;
+                            color: $dev-blur;
+
+                            &:nth-child(1) {
+                                padding-left: 5px;
+                                font-weight: weight(semibold);
+                                color: $dev-color;
+
+                                .holder{
+                                    @include flexDetailPosition(row, center, stretch);
+                                }
+                                img{
+                                    width: 33px;
+                                    height: 33px;
+                                    border-radius: 50%;
+                                    margin-right: 5px;
+                                }
+                            }
+                            &:nth-child(3) {
+                                text-align: center;
+                            }
+                            &:nth-child(4) {
+                                padding-left: 5px;
+                                font-weight: weight(semibold);
+                                color: $dev-color;
+
+                                .naira{
+                                    text-decoration: line-through;
+                                }
+                            }
+
+                            .indicator {
+                                display: inline-block;
+                                font-size: .7rem;
+                                padding: .4em .6em;
+                                background-color: $dev-user-bg;
+                                color: $dev-user;
+                                border-radius: .8em;
+
+                                &.active {
+                                    background-color: $dev-active-bg;
+                                    color: $dev-active;
+                                }
+
+                                &.blacklist {
+                                    background-color: $dev-blacklist-bg;
+                                    color: $dev-blacklist;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .chart {
+            flex-basis: 36%;
+            height: 327px;
+            width: 400px;
+            padding: 8px;
+            box-shadow: 0 0 7px #d2d2d2;
+            border-radius: 15px;
+            background-color: $primary-color;
+            font-weight: weight(semibold);
+    
         }
     }
 }
 
+
+// *** Responsiveness ***
+@include media-lg-desktop {
+    .dashboard-body {
+        padding: 25px 20px 20px;
+    }
+
+}
+
+@include media-graph{
+    .dashboard-body__container__table-wrapper {
+        flex-basis: 62%;
+    }
+    .dashboard-body__container .chart {
+        flex-basis: 37%;
+    }
+
+}
+@include media-graph-forced{
+    .dashboard-body__container__table-wrapper {
+        flex-basis: 100%;
+    }
+    .dashboard-body__container .chart {
+        flex-basis: 100%;
+    }
+
+}
+
+
 @include media-mobile{
     .dashboard-body {
         padding: 20px 10px 20px;
+        &__container {
+            h2{
+                font-size: 1.1rem;
+            }
+
+            &__table-wrapper {
+                margin-bottom: 30px;
+                overflow-x: auto;
+                &::-webkit-scrollbar {height: 0}
+
+                table {
+                    min-width: 446.6px;
+
+                    thead {
+
+                        tr {
+                            font-size: .73em;
+
+                            th {
+                                padding: 7px 0;
+                        
+                                &:nth-child(1) .holder {
+                                    padding-left: 4px;
+                                }
+                        
+                                .icon {
+                                    width: 22px;
+                                    height: 22px;
+                        
+                                    svg {font-size: 1.1em;}
+                                }
+                            }
+                        }
+                    }
+
+                    tbody {
+
+                        tr {
+                            font-size: .75rem;
+
+                            td {
+                                padding: 8px 0;
+
+                                &:nth-child(1) {
+
+                                    img {
+                                        width: 31px;
+                                        height: 31px;
+                                    }
+                                }
+                                &:nth-child(3) {
+                                    font-size: .69rem;
+                                }
+
+                                .indicator {
+                                    font-size: .64rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .chart {
+                padding: 7px 5px;
+            }
+        }
     }
 }

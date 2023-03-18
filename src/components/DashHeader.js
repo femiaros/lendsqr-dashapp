@@ -1,5 +1,5 @@
 import Lendsqrlogo from "./LendsqrLogo"
-import employeeAvatar from "../images/avatar.png"
+import employeeAvatar from "../images/pexels.jpg"
 import {FiSearch} from 'react-icons/fi'
 import {RiMenu2Line,RiCloseCircleFill} from 'react-icons/ri'
 import {IoMdNotificationsOutline} from 'react-icons/io'
