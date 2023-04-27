@@ -85,7 +85,12 @@ const UserInfoBody = ({user}) => {
 
                         <div className="general-field__content__item">
                             <span className="general-field__content__item__title">monthly income</span>
-                            <span className="general-field__content__item__value">{`N${user.education.monthlyIncome[0]}-N${user.education.monthlyIncome[1]}`}</span>
+
+                            <span className="general-field__content__item__value">
+                                {
+                                    `${new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(user.education.monthlyIncome[1])} - ${new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(user.education.monthlyIncome[0])}`
+                                }
+                            </span>
                         </div>
                     </div>
 

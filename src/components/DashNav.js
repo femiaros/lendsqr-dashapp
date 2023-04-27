@@ -28,7 +28,7 @@ const DashNav = ({toggleOrganization,setToggleOrganization,toggleMainMenu,setTog
 
           <div className="dash-nav__top">
             <div className={toggleOrganization? "dash-nav__top__link open": "dash-nav__top__link"} 
-              onClick={(e)=>handleSwitchOrganization(e)}
+              onClick={handleSwitchOrganization}
             >
               <CgToolbox/>
               <span className="dash-nav__top__link-name">

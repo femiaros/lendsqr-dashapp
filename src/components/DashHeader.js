@@ -7,14 +7,19 @@ import {MdOutlineFilterList} from 'react-icons/md'
 import {CgCloseR} from 'react-icons/cg'
 import { useSelector,useDispatch} from "react-redux"
 import { selectUsersBySearch,updateMoreMenuOpenState } from "../features/users/usersSlice"
+import { useNavigate, useLocation } from 'react-router-dom'
 import { logOut } from "../features/auth/authSlice" 
 
+// ***search page REGEX***
+const SEARCH_USERS_REGEX = /^\/users\/search-results(\/)?$/
 
-const DashHeader = ({toggleLogout,setToggleLogout,search,setSearch,handleSearch,toggleEmployeeMenu,setToggleEmployeeMenu,toggleMainMenu,setToggleMainMenu}) => {
+const DashHeader = ({toggleLogout,setToggleLogout,search,setSearch,toggleEmployeeMenu,setToggleEmployeeMenu,toggleMainMenu,setToggleMainMenu}) => {
   //***required states***
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
 
-  // component functions
+  // ***component functions***
   const handleToggleLogout = ()=>{
     setToggleLogout(prev=> !prev)
   }
@@ -31,9 +36,22 @@ const DashHeader = ({toggleLogout,setToggleLogout,search,setSearch,handleSearch,
     //hide more menu component if open
     dispatch(updateMoreMenuOpenState(false))
   }
-  // send search to usersSlice
-  const filteredResults = useSelector(state => selectUsersBySearch(state, search)) 
 
+  // send search to usersSlice for logic
+  useSelector(state => selectUsersBySearch(state, search)) 
+
+  // *** Handle search btn clicked ***
+  const handleSearch = (e)=>{
+    e.preventDefault();
+    
+    if(!search) return // <<< search cant be empty
+
+    if(!SEARCH_USERS_REGEX.test(pathname)){
+      navigate('/users/search-results') 
+    }
+  }
+
+  // *** Handle employee sign out ***
   const signOut = ()=>{
     dispatch(logOut())
   }
@@ -61,12 +79,12 @@ const DashHeader = ({toggleLogout,setToggleLogout,search,setSearch,handleSearch,
 
         {/* search bar*/}
         <div className="dash-header__search">
-          <form onSubmit={(e)=>handleSearch(e)}>
+          <form onSubmit={handleSearch}>
             <label htmlFor="search">Search</label>
             <input 
               id="search"
               type="text" 
-              placeholder="Search for anything"
+              placeholder="Search for users"
               value={search}
               onChange={(e)=>setSearch(e.target.value)}
             />
@@ -88,9 +106,14 @@ const DashHeader = ({toggleLogout,setToggleLogout,search,setSearch,handleSearch,
           </span>
 
           <div className="dash-header__info-bar">
-            <div className="docs" tabIndex='0' aria-label='check out documentation'>
+            <a 
+              href="https://github.com/femiaros/lendsqr-dashapp" 
+              className="docs" 
+              aria-label='check out documentation on github'
+              title="docs on github🌐"
+            >
               Docs
-            </div>
+            </a>
             <div className="alarm" tabIndex='0' aria-label='check out notifications'>
               <IoMdNotificationsOutline/>
             </div>

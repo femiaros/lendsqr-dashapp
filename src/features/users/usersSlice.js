@@ -115,7 +115,7 @@ export const {
     selectAll: selectAllUsers,
     selectById: selectUserById,
     selectIds: selectUsersIds
-    // Pass in a selector that returns the posts slice of state
+    // Pass in a selector that returns the users slice of state
 } = usersAdapter.getSelectors(state => state.users);
 
 export const getDisplayIds = (state) => state.users.displayIds

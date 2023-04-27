@@ -4,16 +4,11 @@ import DashHeader from './DashHeader'
 import DashFooter from './DashFooter'
 import DashNav from './DashNav'
 import { useSelector } from 'react-redux'
-import { useNavigate, useLocation } from 'react-router-dom'
 import { getEditFormState,getMoreMenuState} from '../features/users/usersSlice'
 
-const SEARCH_USERS_REGEX = /^\/users\/search-results(\/)?$/
-
 const DashLayout = ({search,setSearch}) => {
+  
   //***required states***
-  const navigate = useNavigate()
-  const { pathname } = useLocation()
-
   const [toggleLogout, setToggleLogout] = useState(false)
   const [toggleOrganization, setToggleOrganization] = useState(false)
   const [toggleEmployeeMenu, setToggleEmployeeMenu] = useState(false)
@@ -22,16 +17,6 @@ const DashLayout = ({search,setSearch}) => {
   const {open: formOpen} = useSelector(getEditFormState) // <<< to-toggle overlay
   const {open: moreMenuOpen} = useSelector(getMoreMenuState) // <<< to-toggle overlay
 
-  //component functions
-  const handleSearch = (e)=>{
-    e.preventDefault();
-    // autoPageUp();
-    if(!search) return // <<< search cant be empty
-
-    if(!SEARCH_USERS_REGEX.test(pathname)){
-      navigate('/users/search-results') 
-    }
-  }
 
   return (
      <>
@@ -44,7 +29,6 @@ const DashLayout = ({search,setSearch}) => {
           setToggleMainMenu={setToggleMainMenu}
           search = {search}
           setSearch = {setSearch}
-          handleSearch = {handleSearch}
         />
         <div className="dash-container">
 

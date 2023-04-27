@@ -85,8 +85,7 @@ const UserInfoHeader = ({user,title}) => {
                     </div>
                     <div className="details__account">
                         <span className="details__account-balance">
-                               <small>N</small>
-                               <>{`${user.accountBalance}`}</> 
+                               <>{`${new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(user.accountBalance)}`}</> 
                         </span>
                         <span className="details__account-details">
                              {`${user.profile.bvn}/Providus Bank`}

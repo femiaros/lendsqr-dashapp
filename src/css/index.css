@@ -1510,6 +1510,9 @@ body {
   .dashboard__banner {
     padding: 10px;
   }
+  .dashboard__banner__container {
+    border-radius: 15px;
+  }
   .dashboard__banner__text h2 {
     font-size: 1.2em;
   }
@@ -1600,7 +1603,6 @@ body {
   border: none;
 }
 .dashboard-body__container__table-wrapper table tbody tr:hover {
-  transform: translateX(2px);
   background-color: rgba(24, 49, 85, 0.0352941176);
 }
 .dashboard-body__container__table-wrapper table tbody tr td {
@@ -1631,9 +1633,6 @@ body {
   padding-left: 5px;
   font-weight: 600;
   color: #213F7D;
-}
-.dashboard-body__container__table-wrapper table tbody tr td:nth-child(4) .naira {
-  text-decoration: line-through;
 }
 .dashboard-body__container__table-wrapper table tbody tr td .indicator {
   display: inline-block;
@@ -1692,13 +1691,11 @@ body {
   }
   .dashboard-body__container__table-wrapper {
     margin-bottom: 30px;
+    border-radius: 11px;
     overflow-x: auto;
   }
   .dashboard-body__container__table-wrapper::-webkit-scrollbar {
     height: 0;
-  }
-  .dashboard-body__container__table-wrapper table {
-    min-width: 446.6px;
   }
   .dashboard-body__container__table-wrapper table thead tr {
     font-size: 0.73em;
@@ -1708,6 +1705,9 @@ body {
   }
   .dashboard-body__container__table-wrapper table thead tr th:nth-child(1) .holder {
     padding-left: 4px;
+  }
+  .dashboard-body__container__table-wrapper table thead tr th:nth-child(3) .holder {
+    justify-content: stretch;
   }
   .dashboard-body__container__table-wrapper table thead tr th .icon {
     width: 22px;
@@ -1728,12 +1728,15 @@ body {
   }
   .dashboard-body__container__table-wrapper table tbody tr td:nth-child(3) {
     font-size: 0.69rem;
+    font-weight: 600;
+    text-align: left;
   }
   .dashboard-body__container__table-wrapper table tbody tr td .indicator {
     font-size: 0.64rem;
   }
   .dashboard-body__container .chart {
     padding: 7px 5px;
+    border-radius: 11px;
   }
 }
 .userslist {
@@ -2447,14 +2450,7 @@ body {
 }
 .userinfo__header__stats__details .details__account-balance {
   display: flex;
-  justify-content: stretch;
-  align-items: center;
-  flex-direction: row;
   font-size: 1rem;
-}
-.userinfo__header__stats__details .details__account-balance small {
-  font-size: 1rem;
-  text-decoration: line-through;
 }
 .userinfo__header__stats__details .details__account-details {
   margin-top: 4px;

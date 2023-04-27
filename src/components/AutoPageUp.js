@@ -1,11 +1,8 @@
 import { animateScroll as scroll } from "react-scroll"
 
-const upScroll = ()=>{
-  scroll.scrollToTop()
-}
 
 const AutoPageUp = () => {
-  return upScroll();
+  scroll.scrollToTop()
 }
 
 export default AutoPageUp;

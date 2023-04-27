@@ -147,6 +147,9 @@
 @include media-mobile {
     .dashboard__banner {
         padding: 10px; 
+        &__container {
+            border-radius: 15px;
+        }
         &__text h2 {
             font-size: 1.2em;
         }

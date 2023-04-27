@@ -6,10 +6,12 @@ import {BsFillCalendarDateFill} from 'react-icons/bs'
 import { selectHighBalanceUsers } from "../users/usersSlice"
 import { useNavigate } from 'react-router-dom'
 import { useSelector} from "react-redux"
+import useMobileScreen from "../../hooks/useMobileScreen"
 
 const DashBoardBody = () => {
-   // *** required states ***
+  // *** required states ***
   const navigate = useNavigate()
+  const MobileScreen = useMobileScreen()
 
   const HighBalanceUsers  = useSelector(state => selectHighBalanceUsers(state))
 
@@ -21,6 +23,7 @@ const DashBoardBody = () => {
   //map through HighBalanceUsers
   const tableContent = HighBalanceUsers?.length ? HighBalanceUsers.map(user =>(
     <tr 
+      key={user.id}
       onClick={(e)=>userDetails(user.id)}
     >
       <td className="username">
@@ -45,25 +48,27 @@ const DashBoardBody = () => {
               </span>
         }
       </td>
-
-      <td className="date">
-        <span id="month">
+      
+      { // show only if screen width is > 400 
+        !MobileScreen && 
+        <td className="date">
+          <span id="month">
+              {
+                new Date(user.createdAt).toString().split(' ')[1]
+              }
+          </span>
+          <>
             {
-              new Date(user.createdAt).toString().split(' ')[1]
+              ` ${new Date(user.createdAt).getDate()}, ${new Date(user.createdAt).getFullYear()} ${new Date(user.createdAt).getHours()
+              }:${new Date(user.createdAt).getMinutes()} ${new Date(user.createdAt).getHours() < 12 ? 'AM':'PM'
+              }`
             }
-        </span>
-        <>
-          {
-            ` ${new Date(user.createdAt).getDate()}, ${new Date(user.createdAt).getFullYear()} ${new Date(user.createdAt).getHours()
-            }:${new Date(user.createdAt).getMinutes()} ${new Date(user.createdAt).getHours() < 12 ? 'AM':'PM'
-            }`
-          }
-        </>
-      </td>
+          </>
+        </td> 
+      }
 
       <td className="balance">
-        <span className="naira">N</span>
-        <>{user.accountBalance}</>
+        <>{new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(user.accountBalance)}</>
       </td>
 
     </tr>
@@ -97,14 +102,19 @@ const DashBoardBody = () => {
                         </span>
                       </span>
                   </th>
-                  <th className="date">
-                      <span className="holder">
-                        Date
-                        <span className="icon">
-                          <BsFillCalendarDateFill/>
+
+                  { // show only if screen width is > 400 
+                    !MobileScreen && 
+                    <th className="date">
+                        <span className="holder">
+                          Date
+                          <span className="icon">
+                            <BsFillCalendarDateFill/>
+                          </span>
                         </span>
-                      </span>
-                  </th>
+                    </th> 
+                  }
+
                   <th className="balance">
                       <span className="holder">
                         Balance
